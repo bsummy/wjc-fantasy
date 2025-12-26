@@ -1,3 +1,4 @@
+import json
 import requests
 import csv
 import io
@@ -127,8 +128,17 @@ if __name__ == "__main__":
     teams = process_player_submissions()
     teams = compute_scores(teams, URL, PARAMS)
     teams.sort(key=lambda x: x["score"], reverse=True)
-    with open(f"./scores.json", "w", encoding="utf-8") as f:
-        for index, team in enumerate(teams):
-            f.write(
-                f"{index}: Team {team['submission']}, Total Score: {team['score']}\n"
-            )
+    output = {
+        "teams": [
+            {
+                "rank": idx + 1,
+                "name": team["submission"],
+                "score": round(team["score"], 2),  # round to 2 decimals
+            }
+            for idx, team in enumerate(teams)
+        ]
+    }
+
+    # Write to scores.json
+    with open("./scores.json", "w", encoding="utf-8") as f:
+        json.dump(output, f, indent=2)

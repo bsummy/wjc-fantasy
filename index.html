@@ -8,16 +8,17 @@
     <ul id="scores"></ul>
 
     <script>
-      fetch("scores.json")
+      fetch("scores.json?t=" + Date.now())
         .then((res) => res.json())
         .then((data) => {
-          const ul = document.getElementById("scores");
+          const tbody = document.querySelector("#leaderboard tbody");
           data.teams.forEach((team) => {
-            const li = document.createElement("li");
-            li.textContent = `${team.name}: ${team.points}`;
-            ul.appendChild(li);
+            const row = document.createElement("tr");
+            row.innerHTML = `<td>${team.rank}</td><td>${team.name}</td><td>${team.score}</td>`;
+            tbody.appendChild(row);
           });
-        });
+        })
+        .catch((err) => console.error(err));
     </script>
   </body>
 </html>

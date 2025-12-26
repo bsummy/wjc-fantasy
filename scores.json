@@ -1,3 +1,19 @@
-0: Team inayatali, Total Score: 95.19999999999999
-1: Team summy, Total Score: 82.25
-2: Team fischer, Total Score: 72.25
+{
+  "teams": [
+    {
+      "rank": 1,
+      "name": "inayatali",
+      "score": 95.2
+    },
+    {
+      "rank": 2,
+      "name": "summy",
+      "score": 82.25
+    },
+    {
+      "rank": 3,
+      "name": "fischer",
+      "score": 72.25
+    }
+  ]
+}
