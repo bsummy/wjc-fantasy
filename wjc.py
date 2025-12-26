@@ -47,6 +47,7 @@ def process_player_submissions():
                         "first_name": first,
                         "last_name": last,
                         "country": country,
+                        "score": 0,
                     }
 
         submission_name = submission.split(".")[0]
@@ -56,6 +57,7 @@ def process_player_submissions():
                 "players": players,
                 "score": 0,
                 "country_goalie": country_goalie,
+                "goalie_score": 0,
             }
         )
 
@@ -113,6 +115,7 @@ def get_result_set_scores(players, teams):
             for team in teams:
                 if team["country_goalie"] == competitor.lower():
                     team["score"] += score
+                    team["goalie_score"] += score
             continue
 
         # SKATERS: assign by name
@@ -121,6 +124,7 @@ def get_result_set_scores(players, teams):
         for team in teams:
             if player_name in team["players"]:
                 team["score"] += score
+                team["players"][player_name]["score"] += score
 
     return teams
 
@@ -134,7 +138,29 @@ if __name__ == "__main__":
             {
                 "rank": idx + 1,
                 "name": team["submission"],
-                "score": round(team["score"], 2),  # round to 2 decimals
+                "score": round(team["score"], 2),
+                "players": sorted(
+                    [
+                        {
+                            "name": f"{p['first_name'].title()} {p['last_name'].title()}",
+                            "score": round(p["score"], 2),
+                        }
+                        for p in team["players"].values()
+                        if p["score"] > 0
+                    ]
+                    + (
+                        [
+                            {
+                                "name": f"Goalie ({team['country_goalie'].title()})",
+                                "score": round(team["goalie_score"], 2),
+                            }
+                        ]
+                        if team["goalie_score"] > 0
+                        else []
+                    ),
+                    key=lambda x: x["score"],
+                    reverse=True,
+                ),
             }
             for idx, team in enumerate(teams)
         ]

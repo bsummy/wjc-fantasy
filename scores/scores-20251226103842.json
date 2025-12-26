@@ -1,0 +1,143 @@
+{
+  "teams": [
+    {
+      "rank": 1,
+      "name": "inayatali",
+      "score": 95.2,
+      "players": [
+        {
+          "name": "Goalie (Finland)",
+          "score": 59.7
+        },
+        {
+          "name": "Cole Hutson",
+          "score": 25.0
+        },
+        {
+          "name": "Leon Muggli",
+          "score": 6.0
+        },
+        {
+          "name": "Olivers Murnieks",
+          "score": 4.5
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "summy",
+      "score": 82.25,
+      "players": [
+        {
+          "name": "Goalie (Czechia)",
+          "score": 46.75
+        },
+        {
+          "name": "James Hagens",
+          "score": 11.5
+        },
+        {
+          "name": "Victor Eklund",
+          "score": 7.0
+        },
+        {
+          "name": "Aron Kiviharju",
+          "score": 6.0
+        },
+        {
+          "name": "Leon Muggli",
+          "score": 6.0
+        },
+        {
+          "name": "David Lewandowski",
+          "score": 3.0
+        },
+        {
+          "name": "Darels Uljanskis",
+          "score": 2.0
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "fischer",
+      "score": 72.25,
+      "players": [
+        {
+          "name": "Goalie (Canada)",
+          "score": 29.75
+        },
+        {
+          "name": "Cole Hutson",
+          "score": 25.0
+        },
+        {
+          "name": "Tomas Galvas",
+          "score": 8.0
+        },
+        {
+          "name": "Ludvig Johnson",
+          "score": 5.0
+        },
+        {
+          "name": "Julius Miettinen",
+          "score": 2.5
+        },
+        {
+          "name": "Darels Uljanskis",
+          "score": 2.0
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "mccallum",
+      "score": 71.75,
+      "players": [
+        {
+          "name": "Goalie (Canada)",
+          "score": 29.75
+        },
+        {
+          "name": "Cole Hutson",
+          "score": 25.0
+        },
+        {
+          "name": "Leon Muggli",
+          "score": 6.0
+        },
+        {
+          "name": "Bruno Osmanis",
+          "score": 4.5
+        },
+        {
+          "name": "Luka Radivojevic",
+          "score": 4.0
+        },
+        {
+          "name": "Julius Miettinen",
+          "score": 2.5
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "pierre-louis",
+      "score": 51.25,
+      "players": [
+        {
+          "name": "Goalie (Czechia)",
+          "score": 46.75
+        },
+        {
+          "name": "David Lewandowski",
+          "score": 3.0
+        },
+        {
+          "name": "Porter Martone",
+          "score": 1.5
+        }
+      ]
+    }
+  ]
+}

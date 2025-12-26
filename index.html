@@ -106,19 +106,19 @@
             const content = document.createElement("div");
             content.id = `tab-${index}`;
             content.className = "tab-content" + (index === 0 ? " active" : "");
+            const playerRows = team.players
+              .map((p) => `<tr><td>${p.name}</td><td>${p.score}</td></tr>`)
+              .join("");
             content.innerHTML = `
               <table border="1">
                 <thead>
                   <tr>
-                    <th>Team Name</th>
-                    <th>Total Score</th>
+                    <th>Player</th>
+                    <th>Score</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>${team.name}</td>
-                    <td>${team.score}</td>
-                  </tr>
+                  ${playerRows}
                 </tbody>
               </table>
             `;
