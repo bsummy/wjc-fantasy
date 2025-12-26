@@ -3,6 +3,7 @@ import requests
 import csv
 import io
 import os
+from datetime import datetime
 
 URL = "https://stats.sports.bellmedia.ca/sports/hockey/leagues/iihf_juniors/sortablePlayerSeasonStats/"
 PARAMS = {
@@ -139,6 +140,17 @@ if __name__ == "__main__":
         ]
     }
 
-    # Write to scores.json
-    with open("./scores.json", "w", encoding="utf-8") as f:
+    # Write to scores folder with timestamp
+    os.makedirs("./scores", exist_ok=True)
+    timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+    filename = f"./scores/scores-{timestamp}.json"
+    with open(filename, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2)
+
+    # Write latest.json pointing to most recent file
+    latest = {
+        "file": f"scores/scores-{timestamp}.json",
+        "timestamp": timestamp
+    }
+    with open("./latest.json", "w", encoding="utf-8") as f:
+        json.dump(latest, f, indent=2)

@@ -2,6 +2,39 @@
 <html>
   <head>
     <title>Fantasy Hockey Scores</title>
+    <style>
+      .tabs {
+        margin-top: 20px;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-button {
+        padding: 8px 16px;
+        cursor: pointer;
+        border: 1px solid #ccc;
+        background: #f0f0f0;
+      }
+      .tab-button.active {
+        background: #fff;
+        border-bottom: 1px solid #fff;
+      }
+      .tab-content {
+        display: none;
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+      .tab-content.active {
+        display: block;
+      }
+      .last-updated {
+        margin-top: 20px;
+        font-size: 12px;
+        color: #666;
+      }
+    </style>
   </head>
   <body>
     <h1>Leaderboard</h1>
@@ -18,8 +51,30 @@
       <tbody></tbody>
     </table>
 
+    <div class="tabs">
+      <div class="tab-buttons" id="tabButtons"></div>
+      <div id="tabContents"></div>
+    </div>
+
+    <div class="last-updated" id="lastUpdated"></div>
+
     <script>
-      fetch("scores.json?t=" + Date.now())
+      fetch("latest.json?t=" + Date.now())
+        .then((res) => res.json())
+        .then((latest) => {
+          const timestamp = latest.timestamp;
+          const year = timestamp.substring(0, 4);
+          const month = timestamp.substring(4, 6);
+          const day = timestamp.substring(6, 8);
+          const hour = timestamp.substring(8, 10);
+          const minute = timestamp.substring(10, 12);
+          const second = timestamp.substring(12, 14);
+          const date = new Date(year, month - 1, day, hour, minute, second);
+          document.getElementById("lastUpdated").textContent =
+            "Last updated: " + date.toLocaleString();
+
+          return fetch(latest.file + "?t=" + Date.now());
+        })
         .then((res) => res.json())
         .then((data) => {
           const tbody = document.querySelector("#leaderboard tbody");
@@ -27,6 +82,47 @@
             const row = document.createElement("tr");
             row.innerHTML = `<td>${team.rank}</td><td>${team.name}</td><td>${team.score}</td>`;
             tbody.appendChild(row);
+          });
+
+          const tabButtons = document.getElementById("tabButtons");
+          const tabContents = document.getElementById("tabContents");
+
+          data.teams.forEach((team, index) => {
+            const button = document.createElement("button");
+            button.className = "tab-button" + (index === 0 ? " active" : "");
+            button.textContent = team.name;
+            button.onclick = () => {
+              document
+                .querySelectorAll(".tab-button")
+                .forEach((b) => b.classList.remove("active"));
+              document
+                .querySelectorAll(".tab-content")
+                .forEach((c) => c.classList.remove("active"));
+              button.classList.add("active");
+              document.getElementById(`tab-${index}`).classList.add("active");
+            };
+            tabButtons.appendChild(button);
+
+            const content = document.createElement("div");
+            content.id = `tab-${index}`;
+            content.className = "tab-content" + (index === 0 ? " active" : "");
+            content.innerHTML = `
+              <table border="1">
+                <thead>
+                  <tr>
+                    <th>Team Name</th>
+                    <th>Total Score</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>${team.name}</td>
+                    <td>${team.score}</td>
+                  </tr>
+                </tbody>
+              </table>
+            `;
+            tabContents.appendChild(content);
           });
         })
         .catch((err) => console.error(err));

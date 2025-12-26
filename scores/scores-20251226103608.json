@@ -1,0 +1,29 @@
+{
+  "teams": [
+    {
+      "rank": 1,
+      "name": "inayatali",
+      "score": 95.2
+    },
+    {
+      "rank": 2,
+      "name": "summy",
+      "score": 82.25
+    },
+    {
+      "rank": 3,
+      "name": "fischer",
+      "score": 72.25
+    },
+    {
+      "rank": 4,
+      "name": "mccallum",
+      "score": 71.75
+    },
+    {
+      "rank": 5,
+      "name": "pierre-louis",
+      "score": 51.25
+    }
+  ]
+}
