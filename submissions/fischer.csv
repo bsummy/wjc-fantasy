@@ -1,0 +1,11 @@
+firstName,lastName,country,is_goalie
+null,null,canada,true
+Cole,Hutson,united-states,false
+Ivar,Stenberg,sweden,false
+Julius,Miettinen,finland,false
+Tomas,Galvas,czechia,false
+William,Bundgaard,denmark,false
+Michal,Svrcek,slovakia,false
+Darels,Uljanskis,latvia,false
+Elias,Schneider,germany,false
+Ludvig,Johnson,switzerland,false

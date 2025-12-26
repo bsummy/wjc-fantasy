@@ -1,0 +1,11 @@
+firstName,lastName,country,is_goalie
+James,Hagens,united-states,false
+Michael,Misa,canada,false
+Victor,Eklund,sweden,false
+Aron,Kiviharju,finland,false
+David,Lewandowski,germany,false
+Darels,Uljanskis,latvia,false
+Luka,Radivojevič,slovakia,false
+Leon,Muggli,switzerland,false
+Mads,Kongsbak Klyvo,denmark,false
+null,null,czechia,true
