@@ -107,7 +107,10 @@
             content.id = `tab-${index}`;
             content.className = "tab-content" + (index === 0 ? " active" : "");
             const playerRows = team.players
-              .map((p) => `<tr><td>${p.name}</td><td>${p.score}</td></tr>`)
+              .map((p) => {
+                let scoreDisplay = p.score === null ? "null" : p.score;
+                return `<tr><td>${p.name}</td><td>${scoreDisplay}</td></tr>`;
+              })
               .join("");
             content.innerHTML = `
               <table border="1">

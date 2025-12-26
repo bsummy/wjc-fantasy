@@ -1,0 +1,52 @@
+{
+  "teams": [
+    {
+      "rank": 1,
+      "name": "mccallum",
+      "score": 0,
+      "players": []
+    },
+    {
+      "rank": 2,
+      "name": "pierre-louis",
+      "score": 0,
+      "players": []
+    },
+    {
+      "rank": 3,
+      "name": "fischer",
+      "score": 0,
+      "players": []
+    },
+    {
+      "rank": 4,
+      "name": "verkerke",
+      "score": 0,
+      "players": []
+    },
+    {
+      "rank": 5,
+      "name": "weinstein",
+      "score": 0,
+      "players": []
+    },
+    {
+      "rank": 6,
+      "name": "radke",
+      "score": 0,
+      "players": []
+    },
+    {
+      "rank": 7,
+      "name": "inayatali",
+      "score": 0,
+      "players": []
+    },
+    {
+      "rank": 8,
+      "name": "summy",
+      "score": 0,
+      "players": []
+    }
+  ]
+}

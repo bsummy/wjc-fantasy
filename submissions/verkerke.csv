@@ -1,0 +1,11 @@
+firstName,lastName,country,is_goalie
+null,null,sweden,true
+William,Bundgaard,denmark,false
+Adam,Novotny,czechia,false
+Aron,Kiviharju,finland,false
+Zayne,Parekh,canada,false
+Cole,Hutson,united-states,false
+Leon,Muggli,switzerland,false
+Tomas,Chrenko,slovakia,false
+Bruno,Osmanis,latvia,false
+Maxim,Schafer,germany,false

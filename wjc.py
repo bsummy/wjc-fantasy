@@ -10,7 +10,7 @@ PARAMS = {
     "brand": "tsn",
     "type": "json",
     "seasonType": "regularSeason",
-    "season": "2024",
+    "season": "2025",
 }
 
 
@@ -47,7 +47,8 @@ def process_player_submissions():
                         "first_name": first,
                         "last_name": last,
                         "country": country,
-                        "score": 0,
+                        "score": None,
+                        "found": False,
                     }
 
         submission_name = submission.split(".")[0]
@@ -57,7 +58,8 @@ def process_player_submissions():
                 "players": players,
                 "score": 0,
                 "country_goalie": country_goalie,
-                "goalie_score": 0,
+                "goalie_score": None,
+                "goalie_found": False,
             }
         )
 
@@ -114,8 +116,11 @@ def get_result_set_scores(players, teams):
 
             for team in teams:
                 if team["country_goalie"] == competitor.lower():
+                    if team["goalie_score"] is None:
+                        team["goalie_score"] = 0
                     team["score"] += score
                     team["goalie_score"] += score
+                    team["goalie_found"] = True
             continue
 
         # SKATERS: assign by name
@@ -123,8 +128,11 @@ def get_result_set_scores(players, teams):
 
         for team in teams:
             if player_name in team["players"]:
+                if team["players"][player_name]["score"] is None:
+                    team["players"][player_name]["score"] = 0
                 team["score"] += score
                 team["players"][player_name]["score"] += score
+                team["players"][player_name]["found"] = True
 
     return teams
 
@@ -143,22 +151,29 @@ if __name__ == "__main__":
                     [
                         {
                             "name": f"{p['first_name'].title()} {p['last_name'].title()}",
-                            "score": round(p["score"], 2),
+                            "score": round(p["score"], 2) if p["found"] else None,
                         }
                         for p in team["players"].values()
-                        if p["score"] > 0
                     ]
                     + (
                         [
                             {
                                 "name": f"Goalie ({team['country_goalie'].title()})",
-                                "score": round(team["goalie_score"], 2),
+                                "score": (
+                                    round(team["goalie_score"], 2)
+                                    if team["goalie_found"]
+                                    else None
+                                ),
                             }
                         ]
-                        if team["goalie_score"] > 0
+                        if team["country_goalie"]
                         else []
                     ),
-                    key=lambda x: x["score"],
+                    key=lambda x: (
+                        x["score"] is not None and x["score"] > 0,
+                        x["score"] is not None and x["score"] == 0,
+                        x["score"] if x["score"] is not None else -1,
+                    ),
                     reverse=True,
                 ),
             }
@@ -174,9 +189,6 @@ if __name__ == "__main__":
         json.dump(output, f, indent=2)
 
     # Write latest.json pointing to most recent file
-    latest = {
-        "file": f"scores/scores-{timestamp}.json",
-        "timestamp": timestamp
-    }
+    latest = {"file": f"scores/scores-{timestamp}.json", "timestamp": timestamp}
     with open("./latest.json", "w", encoding="utf-8") as f:
         json.dump(latest, f, indent=2)
