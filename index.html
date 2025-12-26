@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fantasy Hockey Scores</title>
+  </head>
+  <body>
+    <h1>Leaderboard</h1>
+    <ul id="scores"></ul>
+
+    <script>
+      fetch("scores.json")
+        .then((res) => res.json())
+        .then((data) => {
+          const ul = document.getElementById("scores");
+          data.teams.forEach((team) => {
+            const li = document.createElement("li");
+            li.textContent = `${team.name}: ${team.points}`;
+            ul.appendChild(li);
+          });
+        });
+    </script>
+  </body>
+</html>

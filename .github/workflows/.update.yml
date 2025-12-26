@@ -1,0 +1,22 @@
+name: Update Scores
+
+on:
+  schedule:
+    - cron: "0 18-6 * * *" # every hour between 12pm and 1am Central Time (UTC 18-6)
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - run: python wjc.py
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add scores.json
+          git commit -m "Update scores" || echo "No changes"
+          git push

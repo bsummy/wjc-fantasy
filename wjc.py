@@ -127,5 +127,8 @@ if __name__ == "__main__":
     teams = process_player_submissions()
     teams = compute_scores(teams, URL, PARAMS)
     teams.sort(key=lambda x: x["score"], reverse=True)
-    for team in teams:
-        print(f"Team: {team['submission']}, Total Score: {team['score']}")
+    with open(f"./scores.json", "w", encoding="utf-8") as f:
+        for index, team in enumerate(teams):
+            f.write(
+                f"{index}: Team {team['submission']}, Total Score: {team['score']}\n"
+            )
