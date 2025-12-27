@@ -56,6 +56,8 @@ on:
 jobs:
   run:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
@@ -64,8 +66,8 @@ jobs:
       - run: pip install -r requirements.txt
       - run: python wjc.py
       - run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add scores.json
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add scores/ latest.json
           git commit -m "Update scores" || echo "No changes"
           git push
