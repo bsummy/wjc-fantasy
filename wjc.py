@@ -3,6 +3,7 @@ import requests
 import csv
 import io
 import os
+import unicodedata
 from datetime import datetime
 
 URL = "https://stats.sports.bellmedia.ca/sports/hockey/leagues/iihf_juniors/sortablePlayerSeasonStats/"
@@ -81,7 +82,7 @@ def compute_scores(teams, url, params):
 
 
 def assign_player_scores(player):
-    if player["position"] in ("C", "RW", "LW", "F"):
+    if player["position"] in ("C", "RW", "LW", "F", "Winger"):
         return (
             int(player.get("goals", 0)) * 1.5 + int(player.get("assists", 0)) * 1.0,
             "F",
@@ -97,14 +98,23 @@ def assign_player_scores(player):
             + int(player.get("wins", 0)) * 5.0
             + int(player.get("shutouts", 0)) * 5.0
         ) - int(player.get("losses", 0)) * 3, "G"
-    return 0
+    return player
 
 
 def clean(player_name):
-    return player_name.strip().lower()
+    """Normalize player name for matching: lowercase, remove accents, remove spaces/punctuation"""
+    # Normalize unicode (e.g., é -> e)
+    normalized = unicodedata.normalize("NFD", player_name)
+    # Remove accents
+    ascii_text = normalized.encode("ascii", "ignore").decode("ascii")
+    # Lowercase and strip
+    return ascii_text.strip().lower().replace(" ", "").replace("-", "").replace("'", "")
 
 
 def get_result_set_scores(players, teams):
+    # Track all API player names for debugging
+    api_player_names = set()
+
     for player in players:
         score, position = assign_player_scores(player["stats"])
 
@@ -124,7 +134,10 @@ def get_result_set_scores(players, teams):
             continue
 
         # SKATERS: assign by name
-        player_name = clean(player["stats"]["firstName"] + player["stats"]["lastName"])
+        first_name = player["stats"].get("firstName", "")
+        last_name = player["stats"].get("lastName", "")
+        player_name = clean(first_name + last_name)
+        api_player_names.add(player_name)
 
         for team in teams:
             if player_name in team["players"]:
@@ -133,6 +146,37 @@ def get_result_set_scores(players, teams):
                 team["score"] += score
                 team["players"][player_name]["score"] += score
                 team["players"][player_name]["found"] = True
+
+    # Debug: Print unmatched players
+    print("\n=== Unmatched Players ===")
+    for team in teams:
+        unmatched = []
+        for player_key, player_data in team["players"].items():
+            if not player_data["found"]:
+                player_clean = clean(
+                    player_data["first_name"] + player_data["last_name"]
+                )
+                unmatched.append(
+                    {
+                        "name": f"{player_data['first_name'].title()} {player_data['last_name'].title()} ({player_data['country']})",
+                        "clean": player_clean,
+                    }
+                )
+
+        if unmatched:
+            print(f"\n{team['submission']} - Unmatched players:")
+            for player_info in unmatched:
+                print(f"  - {player_info['name']}")
+
+                # Try to find similar names in API
+                similar = [
+                    api_name
+                    for api_name in api_player_names
+                    if player_info["clean"] in api_name
+                    or api_name in player_info["clean"]
+                ]
+                if similar:
+                    print(f"    Possible matches in API: {similar[:3]}")
 
     return teams
 

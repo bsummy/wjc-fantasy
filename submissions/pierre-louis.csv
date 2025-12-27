@@ -1,11 +1,11 @@
 firstName,lastName,country,is_goalie
 null,null,czechia,true
 Will,Horcoff,united-states,false
-Viktor,Eklund,sweden,false
+Victor,Eklund,sweden,false
 Porter,Martone,canada,false
 David,Lewandowski,germany,false
 Jonah,Neuenschwander,switzerland,false
 Alberts,Smits,latvia,false
 Adam,Goljer,slovakia,false
 Juho,Piiparinen,finland,false
-Markus,Jacobsen,denmark,false
+Markus,Jakobsen,denmark,false
