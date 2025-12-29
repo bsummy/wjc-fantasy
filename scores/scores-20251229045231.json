@@ -1,0 +1,380 @@
+{
+  "teams": [
+    {
+      "rank": 1,
+      "name": "fischer",
+      "score": 39.1,
+      "players": [
+        {
+          "name": "Goalie (Canada)",
+          "score": 18.1
+        },
+        {
+          "name": "Tomas Galvas",
+          "score": 12.0
+        },
+        {
+          "name": "Cole Hutson",
+          "score": 4.0
+        },
+        {
+          "name": "Ivar Stenberg",
+          "score": 2.5
+        },
+        {
+          "name": "William Bundgaard",
+          "score": 1.5
+        },
+        {
+          "name": "Michal Svrcek",
+          "score": 1.0
+        },
+        {
+          "name": "Julius Miettinen",
+          "score": 0.0
+        },
+        {
+          "name": "Darels Uljanskis",
+          "score": 0.0
+        },
+        {
+          "name": "Elias Schneider",
+          "score": 0.0
+        },
+        {
+          "name": "Ludvig Johnson",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "verkerke",
+      "score": 32.45,
+      "players": [
+        {
+          "name": "Goalie (Sweden)",
+          "score": 8.45
+        },
+        {
+          "name": "Zayne Parekh",
+          "score": 8.0
+        },
+        {
+          "name": "Tomas Chrenko",
+          "score": 4.5
+        },
+        {
+          "name": "Aron Kiviharju",
+          "score": 4.0
+        },
+        {
+          "name": "Cole Hutson",
+          "score": 4.0
+        },
+        {
+          "name": "Adam Novotny",
+          "score": 2.0
+        },
+        {
+          "name": "William Bundgaard",
+          "score": 1.5
+        },
+        {
+          "name": "Leon Muggli",
+          "score": 0.0
+        },
+        {
+          "name": "Bruno Osmanis",
+          "score": 0.0
+        },
+        {
+          "name": "Maxim Schafer",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "mccallum",
+      "score": 31.6,
+      "players": [
+        {
+          "name": "Goalie (Canada)",
+          "score": 18.1
+        },
+        {
+          "name": "Adam Ji\u0159\u00ed\u010dek",
+          "score": 5.0
+        },
+        {
+          "name": "Cole Hutson",
+          "score": 4.0
+        },
+        {
+          "name": "Ivar Stenberg",
+          "score": 2.5
+        },
+        {
+          "name": "Luka Radivojevic",
+          "score": 2.0
+        },
+        {
+          "name": "Julius Miettinen",
+          "score": 0.0
+        },
+        {
+          "name": "Maxim Sch\u00e4fer",
+          "score": 0.0
+        },
+        {
+          "name": "Bruno Osmanis",
+          "score": 0.0
+        },
+        {
+          "name": "Leon Muggli",
+          "score": 0.0
+        },
+        {
+          "name": "Sebastian Str\u00f8mstad",
+          "score": null
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "inayatali",
+      "score": 30.2,
+      "players": [
+        {
+          "name": "Zayne Parekh",
+          "score": 8.0
+        },
+        {
+          "name": "Goalie (Finland)",
+          "score": 6.2
+        },
+        {
+          "name": "Tomas Chrenko",
+          "score": 4.5
+        },
+        {
+          "name": "Cole Hutson",
+          "score": 4.0
+        },
+        {
+          "name": "Adam Benak",
+          "score": 3.0
+        },
+        {
+          "name": "Ivar Stenberg",
+          "score": 2.5
+        },
+        {
+          "name": "Markus Jakobsen",
+          "score": 2.0
+        },
+        {
+          "name": "Gustavs Griva",
+          "score": 0.0
+        },
+        {
+          "name": "Olivers Murnieks",
+          "score": 0.0
+        },
+        {
+          "name": "Leon Muggli",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "weinstein",
+      "score": 27.2,
+      "players": [
+        {
+          "name": "Zayne Parekh",
+          "score": 8.0
+        },
+        {
+          "name": "Goalie (Finland)",
+          "score": 6.2
+        },
+        {
+          "name": "Petr Sikora",
+          "score": 4.5
+        },
+        {
+          "name": "Cole Hutson",
+          "score": 4.0
+        },
+        {
+          "name": "Ivar Stenberg",
+          "score": 2.5
+        },
+        {
+          "name": "Luka Radivojevic",
+          "score": 2.0
+        },
+        {
+          "name": "Maxim Sch\u00e4fer",
+          "score": 0.0
+        },
+        {
+          "name": "Jamiro Reber",
+          "score": 0.0
+        },
+        {
+          "name": "Darels Uljanskis",
+          "score": 0.0
+        },
+        {
+          "name": "Mads Kongsbak Klyvo",
+          "score": null
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "radke",
+      "score": 24.7,
+      "players": [
+        {
+          "name": "Zayne Parekh",
+          "score": 8.0
+        },
+        {
+          "name": "Goalie (Finland)",
+          "score": 6.2
+        },
+        {
+          "name": "Cole Hutson",
+          "score": 4.0
+        },
+        {
+          "name": "Adam Benak",
+          "score": 3.0
+        },
+        {
+          "name": "Anton Frondell",
+          "score": 2.5
+        },
+        {
+          "name": "David Lewandowski",
+          "score": 1.0
+        },
+        {
+          "name": "Jan Chovan",
+          "score": 0.0
+        },
+        {
+          "name": "Ludvig Johnson",
+          "score": 0.0
+        },
+        {
+          "name": "Darels Uljanskis",
+          "score": 0.0
+        },
+        {
+          "name": "Mads Kongsbak Klyvo",
+          "score": null
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "summy",
+      "score": 19.5,
+      "players": [
+        {
+          "name": "Goalie (Czechia)",
+          "score": 8.0
+        },
+        {
+          "name": "Aron Kiviharju",
+          "score": 4.0
+        },
+        {
+          "name": "James Hagens",
+          "score": 2.0
+        },
+        {
+          "name": "Luka Radivojevi\u010d",
+          "score": 2.0
+        },
+        {
+          "name": "Victor Eklund",
+          "score": 1.5
+        },
+        {
+          "name": "Michael Misa",
+          "score": 1.0
+        },
+        {
+          "name": "David Lewandowski",
+          "score": 1.0
+        },
+        {
+          "name": "Darels Uljanskis",
+          "score": 0.0
+        },
+        {
+          "name": "Leon Muggli",
+          "score": 0.0
+        },
+        {
+          "name": "Mads Kongsbak Klyvo",
+          "score": null
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "name": "pierre-louis",
+      "score": 16.5,
+      "players": [
+        {
+          "name": "Goalie (Czechia)",
+          "score": 8.0
+        },
+        {
+          "name": "Will Horcoff",
+          "score": 2.5
+        },
+        {
+          "name": "Markus Jakobsen",
+          "score": 2.0
+        },
+        {
+          "name": "Victor Eklund",
+          "score": 1.5
+        },
+        {
+          "name": "Porter Martone",
+          "score": 1.5
+        },
+        {
+          "name": "David Lewandowski",
+          "score": 1.0
+        },
+        {
+          "name": "Jonah Neuenschwander",
+          "score": 0.0
+        },
+        {
+          "name": "Alberts Smits",
+          "score": 0.0
+        },
+        {
+          "name": "Adam Goljer",
+          "score": 0.0
+        },
+        {
+          "name": "Juho Piiparinen",
+          "score": 0.0
+        }
+      ]
+    }
+  ]
+}
