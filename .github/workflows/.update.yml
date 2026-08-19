@@ -3,7 +3,7 @@ name: Update Scores
 on:
   schedule:
     # Run at 5:00 AM UTC (11:00 PM CT)
-    - cron: "0 5 * * *"
+    - cron: "None"
   workflow_dispatch:
 
 jobs:
